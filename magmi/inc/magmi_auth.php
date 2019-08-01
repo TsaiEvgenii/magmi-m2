@@ -44,7 +44,7 @@ class Magmi_Auth extends Magmi_Engine {
         $hash = explode(":",$hash);
         $cecheck = md5($hash[1] . $pass);
         $eecheck = hash('sha256',$hash[1] . $pass);
-	$eecheckArgo = $this->getArgonHash($pass, $hash[1]);
+        $eecheckArgo = $this->getArgonHash($pass, $hash[1]);
         $valid = ($cecheck == $hash[0] || $eecheck == $hash[0] || $eecheckArgo == $hash[0]);
 
         return $valid;
